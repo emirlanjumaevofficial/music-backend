@@ -1,7 +1,11 @@
 import { Module } from '@nestjs/common'
-import { I18nModule, AcceptLanguageResolver, I18nJsonLoader, QueryResolver } from 'nestjs-i18n'
+import {
+	AcceptLanguageResolver,
+	I18nJsonLoader,
+	I18nModule,
+	QueryResolver
+} from 'nestjs-i18n'
 import { join } from 'path'
-
 
 import { AppConfigModule } from './config/config.module'
 import { PrismaModule } from './core/prisma/prisma.module'
@@ -16,20 +20,17 @@ import { UserModule } from './modules/user/user.module'
 			loader: I18nJsonLoader,
 			loaderOptions: {
 				path: join(__dirname, '../apps/api/i18n/'),
-				watch: true,	// TODO: remove this in production
+				watch: true // TODO: remove this in production
 			},
-			typesOutputPath: join(__dirname, './src/generated/i18n.generated.ts'),
-			resolvers: [
-				AcceptLanguageResolver,
-			],
+			resolvers: [AcceptLanguageResolver]
 		}),
 		AppConfigModule,
 		AuthModule,
 		PrismaModule,
 		UserModule,
-		SessionModule,
+		SessionModule
 	],
 	controllers: [],
 	providers: []
 })
-export class AppModule { }
+export class AppModule {}
