@@ -1,0 +1,20 @@
+services:
+    db:
+        container_name: music-db
+        image: postgres:16-alpine
+        restart: always
+        ports:
+            - ${PG_PORT}:5432
+        environment:
+            - POSTGRES_USER=${PG_USER}
+            - POSTGRES_PASSWORD=${PG_PASSWORD}
+        volumes:
+            - music_data:/var/lib/postgresql/data
+        networks:
+            - music
+
+volumes:
+    music_data:
+
+networks:
+    music:

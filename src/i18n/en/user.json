@@ -1,0 +1,11 @@
+{
+	"notFound": "User not found",
+	"emailNotFound": "User with this email not found",
+	"created": "User created successfully",
+	"updated": "User updated successfully",
+	"deleted": "User deleted successfully",
+	"invalidPassword": "Invalid password",
+	"emailExists": "User with this email already exists",
+	"profileUpdated": "Profile updated successfully",
+	"passwordChanged": "Password changed successfully"
+}

@@ -1,0 +1,12 @@
+{
+	"created": "Session created successfully",
+	"deleted": "Session deleted successfully",
+	"notFound": "Session not found",
+	"invalid": "Invalid session",
+	"expired": "Session expired",
+	"refreshTokenInvalid": "Invalid refresh token",
+	"deviceNotFound": "Device not found",
+	"allSessionsDeleted": "All sessions deleted successfully",
+	"sessionRevoked": "Session revoked successfully",
+	"error": "Session error occurred"
+}

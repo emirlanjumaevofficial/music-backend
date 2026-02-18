@@ -1,0 +1,15 @@
+{
+	"welcome": "Welcome to Music Backend API",
+	"validation": {
+		"required": "Field is required",
+		"email": "Invalid email format",
+		"minLength": "Minimum length is {min}",
+		"maxLength": "Maximum length is {max}",
+		"password": "Password must contain at least one uppercase letter, one lowercase letter, one number and one special character"
+	},
+	"error": {
+		"internal": "Internal server error",
+		"badRequest": "Bad request",
+		"notFound": "Resource not found"
+	}
+}
