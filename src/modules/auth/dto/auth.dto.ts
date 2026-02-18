@@ -1,4 +1,3 @@
-import { I18nTranslations } from './../../../../dist/src/generated/i18n.generated';
 import { PickType } from '@nestjs/mapped-types'
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger'
 import {
@@ -10,8 +9,8 @@ import {
 	MaxLength,
 	MinLength
 } from 'class-validator'
+import { i18nValidationMessage } from 'nestjs-i18n'
 import type { Role, User } from 'prisma/generated/client'
-import { i18nValidationMessage } from 'nestjs-i18n';
 
 export class RegisterDto implements Pick<
 	User,
@@ -22,12 +21,9 @@ export class RegisterDto implements Pick<
 		description: 'User email address'
 	})
 	@IsNotEmpty({
-		message: i18nValidationMessage<I18nTranslations>('common.validation.required'),
+		message: i18nValidationMessage('common.validation.required')
 	})
-	@IsEmail(
-		{},
-		{ message: i18nValidationMessage<I18nTranslations>('common.validation.email') }
-	)
+	@IsEmail({}, { message: i18nValidationMessage('common.validation.email') })
 	email: string
 
 	@ApiProperty({
@@ -37,15 +33,19 @@ export class RegisterDto implements Pick<
 	})
 	@IsString()
 	@MinLength(8, {
-		message: i18nValidationMessage<I18nTranslations>('common.validation.minLength', { min: 8 })
+		message: i18nValidationMessage('common.validation.minLength', {
+			min: 8
+		})
 	})
 	@MaxLength(32, {
-		message: i18nValidationMessage<I18nTranslations>('common.validation.maxLength', { max: 32 })
+		message: i18nValidationMessage('common.validation.maxLength', {
+			max: 32
+		})
 	})
 	@Matches(
 		/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
 		{
-			message: i18nValidationMessage<I18nTranslations>('common.validation.password')
+			message: i18nValidationMessage('common.validation.password')
 		}
 	)
 	password: string
@@ -64,9 +64,7 @@ export class RegisterDto implements Pick<
 export class LoginDto extends PickType(RegisterDto, [
 	'email',
 	'password'
-] as const) {
-
-}
+] as const) {}
 
 export class RefreshDto {
 	@ApiProperty({
